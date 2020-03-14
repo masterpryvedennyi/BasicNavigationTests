@@ -4,6 +4,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.safari.SafariDriver;
 
 public class BrowserFactory {
     public static WebDriver getDriver(String browser) {
@@ -18,7 +19,8 @@ public class BrowserFactory {
             driver = new FirefoxDriver();
             driver.manage().window().fullscreen();
         } else if (browser.equalsIgnoreCase("safari")) {
-            return null;
+            driver = new SafariDriver();
+            driver.manage().window().fullscreen();
         }else {
             return null;
         }
