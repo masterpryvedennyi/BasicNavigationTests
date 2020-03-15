@@ -8,7 +8,7 @@ import org.openqa.selenium.WebElement;
 import java.util.concurrent.TimeUnit;
 
 public class VyTrackTitleTest {
-    public static void verifyTitle(){
+    public static void verifyTitle() throws InterruptedException {
         WebDriver driver = BrowserFactory.getDriver("chrome");
         driver.get("https://qa3.vytrack.com/user/login");
         WebElement usernameBox = driver.findElement(By.id("prependedInput"));
@@ -17,7 +17,7 @@ public class VyTrackTitleTest {
         usernameBox.sendKeys("SalesManager110");
         passwordBox.sendKeys("UserUser123");
         loginButton.click();
-        driver.manage().timeouts().implicitlyWait(3000, TimeUnit.MILLISECONDS);
+        Thread.sleep(3000);
         WebElement dropdownMenu = driver.findElement(By.xpath("//a[@data-toggle='dropdown']"));
         dropdownMenu.click();
         WebElement myConfiguration = driver.findElement(By.linkText("My Configuration"));

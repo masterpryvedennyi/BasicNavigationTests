@@ -16,14 +16,14 @@ public class EbaySearchResult {
         searchBox.sendKeys("wooden spoon" + Keys.ENTER);
         driver.manage().timeouts().implicitlyWait(3000, TimeUnit.MILLISECONDS);
         WebElement numberOfResults = driver.findElement(By.xpath("//h1[@class=\"srp-controls__count-heading\"]/span[1]"));
-        String numberOfResultsStr = numberOfResults.getText().replace(",", "");
-        int numOfResultsInt = Integer.parseInt(numberOfResultsStr);
+        String count = numberOfResults.getText().replace(",", "");
+        int numOfResultsInt = Integer.parseInt(count);
 
         WebElement allCategoriesLink = driver.findElement(By.xpath("//li[@class=\"srp-refine__category__item srp-refine__category__list--flush\"]/a"));
         allCategoriesLink.click();
         WebElement numberOfResults2 = driver.findElement(By.xpath("//h1[@class=\"srp-controls__count-heading\"]/span[1]"));
-        String numberOfResultsStr2 = numberOfResults2.getText().replace(",", "");
-        int numOfResultsInt2 = Integer.parseInt(numberOfResultsStr2);
+        count = numberOfResults2.getText().replace(",", "");
+        int numOfResultsInt2 = Integer.parseInt(count);
         driver.manage().timeouts().implicitlyWait(3000, TimeUnit.MILLISECONDS);
         if(numOfResultsInt2 > numOfResultsInt){
             System.out.println("PASS! Number of results in all categories is bigger");
